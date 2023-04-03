@@ -18,15 +18,46 @@ public class User {
 	
 	private String name;
 	
+	private String title;
+	
+	private String task;
 	
 	public User() {
 		
 	}
 
+	public User(int id, String name, String title, String task) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.title = title;
+		this.task = task;
+	}
+
+
+
 	public User(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+	
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getTask() {
+		return task;
+	}
+
+	public void setTask(String task) {
+		this.task = task;
 	}
 
 	public int getId() {
@@ -69,8 +100,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "User [id=" + id + ", name=" + name + ", title=" + title + ", task=" + task + "]";
 	}
+
+
 	
 	
 	

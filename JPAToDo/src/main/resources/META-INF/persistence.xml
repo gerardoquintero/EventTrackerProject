@@ -6,7 +6,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!--BEGIN ENTITIES -->
-		<class>com.skilldistillery.todo.entities.Users</class>
+		<class>com.skilldistillery.todo.entities.User</class>
 		
 
 	
