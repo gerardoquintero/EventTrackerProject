@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest { 
+class ToDoTest { 
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private ToDo toDo;
 	
 	
 	@BeforeAll
@@ -34,19 +34,19 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		toDo = em.find(ToDo.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		toDo = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(user);
-		assertEquals("Some name", user.getName());
+		assertNotNull(toDo);
+		assertEquals("Some name", toDo.getName());
 	}
 
 }

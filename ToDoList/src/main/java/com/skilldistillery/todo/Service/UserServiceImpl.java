@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.todo.Repository.UserRepository;
-import com.skilldistillery.todo.entities.User;
+import com.skilldistillery.todo.entities.ToDo;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepo;
 
 	@Override
-	public Optional<User> queryById(int userId) {
+	public Optional<ToDo> queryById(int userId) {
 		if (userRepo.existsById(userId)) {
 			return userRepo.findById(userId);
 		}
@@ -24,31 +24,39 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findByNameLikeTitleOrTitleLike(String keyword) {
+	public List<ToDo> findByNameLikeTitleOrTitleLike(String keyword) {
 		keyword = "%" + keyword + "%";
-		return userRepo.findByNameLikeTitleOrTitleLike(keyword);
+		return userRepo.findByNameLikeOrTitleLike(keyword, keyword);
 	}
 
 	@Override
-	public User createNewUser(User user) {
-		return userRepo.saveAndFlush(user);
+	public ToDo createNewUser(ToDo toDo) {
+		return userRepo.saveAndFlush(toDo);
 	}
 
 	@Override
 	public boolean deleteUser(int userId) {
 		boolean deleted = false;
-		Optional<User> toDelete = userRepo.findById(userId);
-		userRepo.delete(toDelete);
+		Optional<ToDo> toDelete = userRepo.findById(userId);
+		if (toDelete.isPresent()) {
+			userRepo.delete(toDelete.get());
+			deleted = true;
+		}
 		return deleted;
 	}
 
 	@Override
-	public User updateUser(int userId, User user) {
-			Optional<User> original = userRepo.findById(userId);
-//			original.setName(user.getName());
-//			original.setTitle(user.getTitle());
-//			original.setTask(user.getTask());
-		return userRepo.saveAndFlush(original);
+	public ToDo updateUser(int userId, ToDo toDo) {
+		Optional<ToDo> originalOpt = userRepo.findById(userId);
+		if (originalOpt.isPresent()) {
+			ToDo original = originalOpt.get();
+
+			original.setName(toDo.getName());
+			original.setTitle(toDo.getTitle());
+			original.setTask(toDo.getTask());
+
+			return userRepo.saveAndFlush(original);
+		} return null;
 	}
 
 }

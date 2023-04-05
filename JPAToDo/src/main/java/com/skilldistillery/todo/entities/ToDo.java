@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="to_do")
-public class User {
+public class ToDo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class User {
 	
 	private String task;
 	
-	public User() {
+	public ToDo() {
 		
 	}
 
-	public User(int id, String name, String title, String task) {
+	public ToDo(int id, String name, String title, String task) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -36,7 +36,7 @@ public class User {
 
 
 
-	public User(int id, String name) {
+	public ToDo(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -94,13 +94,13 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		ToDo other = (ToDo) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", title=" + title + ", task=" + task + "]";
+		return "ToDo [id=" + id + ", name=" + name + ", title=" + title + ", task=" + task + "]";
 	}
 
 

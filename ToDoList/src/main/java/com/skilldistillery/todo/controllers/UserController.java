@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.todo.Service.UserService;
-import com.skilldistillery.todo.entities.User;
+import com.skilldistillery.todo.entities.ToDo;
 
 @RestController
 @RequestMapping("api")
@@ -28,14 +28,14 @@ public class UserController {
 	}
 
 	@GetMapping("users/{userId}")
-	public Optional<User> getUser(@PathVariable Integer userId) {
-		Optional<User> user = userService.queryById(userId);
-		return user;
+	public Optional<ToDo> getUser(@PathVariable Integer userId) {
+		Optional<ToDo> toDo = userService.queryById(userId);
+		return toDo;
 	}
 
-	@PostMapping("user")
-	public User addUser(@RequestBody User user) {
-		return user = userService.createNewUser(user);
+	@PostMapping("users")
+	public ToDo addUser(@RequestBody ToDo toDo) {
+		return toDo = userService.createNewUser(toDo);
 	}
 
 	@DeleteMapping("users/{userId}")
@@ -44,8 +44,8 @@ public class UserController {
 	}
 
 	@PutMapping("users/{userID}")
-	public User updateUser(@PathVariable Integer userId, @RequestBody User user) {
-	return userService.updateUser(userId, user);
+	public ToDo updateUser(@PathVariable Integer userId, @RequestBody ToDo toDo) {
+	return userService.updateUser(userId, toDo);
 	
 	
 	}

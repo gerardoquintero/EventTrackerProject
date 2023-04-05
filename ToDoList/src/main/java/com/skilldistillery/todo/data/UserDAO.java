@@ -2,18 +2,18 @@ package com.skilldistillery.todo.data;
 
 import java.util.List;
 
-import com.skilldistillery.todo.entities.User;
+import com.skilldistillery.todo.entities.ToDo;
 
 public interface UserDAO {
 
 
-	List<User> findAll();
+	List<ToDo> findAll();
 	
-	User findById(int id);
+	ToDo findById(int id);
 	
-	User create(User User);
+	ToDo create(ToDo ToDo);
 	
-	User update(int UserId, User User);
+	ToDo update(int UserId, ToDo ToDo);
 	
 	boolean deleteById(Integer UserId);
 	
