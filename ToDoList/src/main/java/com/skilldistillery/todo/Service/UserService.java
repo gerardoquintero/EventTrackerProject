@@ -12,5 +12,6 @@ public interface UserService {
 	boolean deleteUser(int userId);
 	ToDo createNewUser(ToDo toDo);
 	ToDo updateUser(int userId, ToDo toDo);
+	List<ToDo> listAll();
 }
  

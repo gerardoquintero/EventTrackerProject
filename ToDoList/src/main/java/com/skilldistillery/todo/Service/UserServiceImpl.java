@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 	}
+	@Override
+	public List<ToDo> listAll(){
+		return userRepo.findAll();
+		
+	}
 
 	@Override
 	public List<ToDo> findByNameLikeTitleOrTitleLike(String keyword) {

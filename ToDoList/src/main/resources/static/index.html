@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>To Do List</title>
+<script type="text/javascript" src="js/script.js">
+	
+</script>
+</head>
+<body>
+	<h1>To Do List</h1>
+
+	<div id="toDoDiv">
+		<h2 id="todoCount">Total Todos: </h2>
+		<table>
+			<thead>
+				<th>ID</th>
+				<th>Name</th>
+			</thead>
+			<tbody id="toDoListBody">
+			</tbody>
+		</table>
+	</div>
+
+		<br>
+		<br>
+
+	<div id="toDoEachList">
+		<!-- TO do form  -->
+
+		<form name="newToDoForm">
+			<label for="name">User Name:</label><br> <input type="text"
+				id="userName" name="name"><br> <label for="title">Title:</label><br>
+			<input type="text" id="title" name="title">
+			<br> <label for="task">Task:</label><br> <input type="text"
+				id="task" name="task"><br>
+			<br> <input type="submit" value="Create ToDo">
+
+		</form>
+
+	</div>
+
+	<div id="toDoEachList">
+		<!-- TO do form  -->
+		<br> <br>
+
+		<form name="updateToDoForm">
+			<label for="name">User Name:</label><br> <input type="text"
+				id="userName" name="name"><br> <label for="title">Title:</label><br>
+			<input type="text" id="title" name="title"><br> <label
+				for="task">Task:</label><br> <input type="text" id="task"
+				name="task"><br><br><input type="submit"
+				value="Update ToDo">
+
+		</form>
+
+	</div>
+	
+	<div id="toDoEachList">
+		<!-- TO do form  -->
+		<br> <br>
+
+		<form name="deleteToDoForm">
+			<label for="name">User Name:</label><br> <input type="text"
+				id="userName" name="name"><br> <label for="title">Title:</label><br>
+			<input type="text" id="title" name="title"><br> <label
+				for="task">Task:</label><br> <input type="text" id="task"
+				name="task"><br><br><input type="submit"
+				value="delete ToDo">
+
+		</form>
+
+	</div>
+</body>
+</html>

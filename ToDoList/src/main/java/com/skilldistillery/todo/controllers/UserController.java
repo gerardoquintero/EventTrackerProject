@@ -1,5 +1,6 @@
 package com.skilldistillery.todo.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class UserController {
 	@GetMapping("users/{userId}")
 	public Optional<ToDo> getUser(@PathVariable Integer userId) {
 		Optional<ToDo> toDo = userService.queryById(userId);
+		return toDo;
+	}
+	
+	@GetMapping("users")
+	public List<ToDo> getUsers() {
+		List<ToDo> toDo = userService.listAll();
 		return toDo;
 	}
 
