@@ -1,75 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>To Do List</title>
-<script type="text/javascript" src="js/script.js">
-	
-</script>
+	<meta charset="UTF-8">
+	<title>To Do</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-	<h1>To Do List</h1>
 
-	<div id="toDoDiv">
-		<h2 id="todoCount">Total Todos: </h2>
-		<table>
-			<thead>
-				<th>ID</th>
-				<th>Name</th>
-			</thead>
-			<tbody id="toDoListBody">
-			</tbody>
-		</table>
-	</div>
+	<div class="container">
 
-		<br>
-		<br>
+		<div class="card my-5">
+			<div class="card-header">
+				<h1>To Do!!!</h1>
+				<h2 id="todoCount">Total To Do's: </h2>
+			</div>
+			<div class="card-body">
+				<div id="toDoListDiv">
+					<h2>To Do</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Title</th>
+								<th>Task</th>
+							</tr>
+						</thead>
+						<tbody id="toDoBody"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 
-	<div id="toDoEachList">
-		<!-- TO do form  -->
+		<div class="card my-5">
+			<div class="card-header">
+				<h2>New To Do</h2>
+			</div>
+			<div class="card-body">
+				<form name="newToDoForm">
+					<label for="toDoTitle">Title:</label>
+					<textarea id="title" name="title"></textarea>
+					<br> 
+					<label for="toDoName">Name:</label> 
+					<input type="text" id="name" name="name" required> 
+					<br>
+					<label for="toDoTask">Task:</label> 
+					<input type="text" id="task" name="task" required> 
+					<br> 
+					<button type="submit" name="addToDoButton" class="btn btn-primary">Add To Do</button>
+				</form>
+			</div>
+		</div>
 
-		<form name="newToDoForm">
-			<label for="name">User Name:</label><br> <input type="text"
-				id="userName" name="name"><br> <label for="title">Title:</label><br>
-			<input type="text" id="title" name="title">
-			<br> <label for="task">Task:</label><br> <input type="text"
-				id="task" name="task"><br>
-			<br> <input type="submit" value="Create ToDo">
+		<div class="card my-5">
+			<div class="card-header">
+				<h2>Get To Do By Id</h2>
+			</div>
+			<div class="card-body">
+				<form name="toDoForm">
+					<input type="number" name="toDoId">
+					<button class="btn btn-success" name="lookup">Get To Do By Id</button>
+				</form>
+			</div>
+				<div id="toDoData"></div>
+		</div>
 
-		</form>
-
-	</div>
-
-	<div id="toDoEachList">
-		<!-- TO do form  -->
-		<br> <br>
-
-		<form name="updateToDoForm">
-			<label for="name">User Name:</label><br> <input type="text"
-				id="userName" name="name"><br> <label for="title">Title:</label><br>
-			<input type="text" id="title" name="title"><br> <label
-				for="task">Task:</label><br> <input type="text" id="task"
-				name="task"><br><br><input type="submit"
-				value="Update ToDo">
-
-		</form>
-
-	</div>
 	
-	<div id="toDoEachList">
-		<!-- TO do form  -->
-		<br> <br>
 
-		<form name="deleteToDoForm">
-			<label for="name">User Name:</label><br> <input type="text"
-				id="userName" name="name"><br> <label for="title">Title:</label><br>
-			<input type="text" id="title" name="title"><br> <label
-				for="task">Task:</label><br> <input type="text" id="task"
-				name="task"><br><br><input type="submit"
-				value="delete ToDo">
+
+<div class="card">
+	<h2 class="card-header">Update To Do</h2>
+	<div class="card-body">
+		<form name="updateToDoForm">
+			<label for="toDoId">To Do ID: </label> <input type="number" name="toDoId"><br>
+			<label for="toDoTitle">Title: </label> <input type="text" name="toDoTitle"><br> 
+			<label for="toDoName">Name: </label> <input type="text" name="toDoName"><br> 
+			<label for="toDoTask">Task:</label> <input type="text" name="toDoTask"><br> 
+
+			<button name="updateToDoButton" class="btn btn-warning">Update To Do</button>
 
 		</form>
-
 	</div>
+	<div id="toDoDataUpdate"></div>
+</div>
+
+<div class="card">
+	<h2 class="card-header">Delete an To Do</h2>
+	<div class="card-body">
+		<form name="deleteToDoForm">
+			<input type="number" name="toDoId">
+			<button name="deleteToDo" class="btn btn-danger">Delete To Do</button>
+		</form>
+	</div>
+</div>
+</div>
+
 </body>
+
+
 </html>
