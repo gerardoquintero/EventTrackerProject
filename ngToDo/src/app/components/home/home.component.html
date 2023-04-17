@@ -1,0 +1,49 @@
+<h1>
+  {{ title }}<span> {{ gettodocount() }}</span>
+</h1>
+
+
+<div *ngIf="!selected">
+  <table class="table table-striped table-hover">
+    <thead class="dark">
+      <th>Task</th>
+      <th>Mark</th>
+      <th>Completed</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of Todo | incomplete : false" >
+        <td (click)="displayTodo(todo)">{{ todo.task }}</td>
+        <td><input (change)="updateTodo(todo, false)" type="checkbox" name="completed" [(ngModel)]="todo.completed"></td>
+        <td>{{ todo.completed }}</td>
+        <td><button class="btn btn-danger"(click)="deleteTodo(todo.id)">x</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <form>
+    <input type="text" name="task" [(ngModel)]="newTodo.task">
+    <button  class="btn btn-primary"(click)="addTodo(newTodo)">Add Todo</button>
+    Show completed: <input name="showComplete" type="checkbox" [(ngModel)]="showComplete">
+  </form>
+</div>
+
+<div id="todoDetail" *ngIf="selected && !editTodo">
+  <h4>Id: {{ selected.id }}</h4>
+  <h4>Task: {{ selected.name }}</h4>
+  <h4>Completed: {{ selected.title }}</h4>
+  <h4>Description: {{ selected.task }}</h4>
+  <button (click)="displayTable()">Return</button>
+  <button (click)="setEditTodo()">Edit</button>
+</div>
+
+<div id="todoEdit" *ngIf="editTodo">
+  <form>
+    <input type="text" name="task" [(ngModel)]="editTodo.task"><br>
+    <input type="text" name="description" [(ngModel)]="editTodo.description"><br>
+    <label for="completed">Completed</label>
+    <input type="checkbox" name="completed" [(ngModel)]="editTodo.completed"><br>
+    <button (click)="editTodo = null">Cancel</button>
+    <button (click)="updateTodo(editTodo)">Save</button>
+  </form>
+</div>
+
+<!-- need to add cs later -->
