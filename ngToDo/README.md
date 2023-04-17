@@ -24,6 +24,8 @@ AWS
 Bootstrap
 Visual Studio
 Springboot
+HTML
+CSS
 -----------------------------------------------------------------------------------------------
 ## Lessons Learned
 
